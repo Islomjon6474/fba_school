@@ -168,7 +168,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="flex flex-wrap justify-start items-center mt-10">
-          <div className="text-white">
+          <div className="text-white opacity-50">
             &copy; 2024 E-tutor. Designed by Templatecookie. All rights
             reserved.
           </div>
