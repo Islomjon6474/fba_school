@@ -7,9 +7,9 @@ type Props = {};
 
 const Mission: React.FC<Props> = observer(() => {
   return (
-    <div className={`w-full mt-10 h-screen flex `}>
+    <div className={`container w-full h-[70vh] flex my-36`}>
       <div className="w-full md:w-1/2 h-full flex justify-center items-center">
-        <div className="flex text-black w-4/5 font-inter flex-col items-start gap-16  ">
+        <div className="flex text-black w-full font-inter flex-col items-start gap-16  ">
           <h1 className={`text-6xl font-bold`}>Our Mission</h1>
           <p className={`text-lg`}>
             We are committed to providing the best education to our students

@@ -13,6 +13,8 @@ const button = tv({
       primary: "!text-white !bg-[#FF6636]",
       outline: "!text-[#FF6636] !bg-[#FFEEE8]",
       dark: "!text-white !bg-[#292B31]",
+      hybrid:
+        "!text-white !bg-[#292B31] hover:!bg-[#FF6636] transition duration-100 ease-in hover:border-[#FF6636] hover:shadow-lg hover:shadow-2xl hover:shadow-[#FF6636]",
     },
   },
   defaultVariants: {
@@ -74,7 +76,7 @@ const Button: React.ForwardRefExoticComponent<any> = React.forwardRef<
         className={cx(
           twMerge(
             `
-            py-[8px] px-[30px] !font-bold !font-inter text-base rounded-full relative z-[1] cursor-pointer overflow-hidden
+            py-[8px] px-[30px] opacity-80 hover:opacity-100 !font-bold !font-inter text-base rounded-full relative z-[1] cursor-pointer overflow-hidden
             disabled:opacity-70 disabled:cursor-default
           `,
             buttonClassName,

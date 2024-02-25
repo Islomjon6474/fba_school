@@ -14,7 +14,7 @@ export const Instructor: React.FC<InstructorProps> = observer(
     return (
       <div className="flex !h-2/5 flex-col md:flex-row bg-[#EEAA17] rounded-xl shadow-lg overflow-hidden">
         {/* Description Section */}
-        <div className="p-8 flex flex-col justify-between bg-orange-100 w-full md:w-1/2">
+        <div className="p-8 flex flex-col justify-evenly bg-orange-100 w-full md:w-1/2">
           <div className={`flex flex-col`}>
             <h2 className="text-2xl font-bold mb-2">{name}</h2>
             <h3 className="text-xl mb-4">{title}</h3>
@@ -63,8 +63,13 @@ const Instructors: React.FC = observer(() => {
 
   return (
     <div
-      className={`container min-h-screen h-fit w-full flex justify-center items-center text-black font-inter`}
+      className={`container min-h-screen h-fit w-full my-10 flex flex-col justify-center items-center text-black font-inter`}
     >
+      <p
+        className={`text-4xl font-bold mb-10 mt-20 text-black text-center font-inter `}
+      >
+        Top instructors
+      </p>
       <Instructor {...instructorData} />
     </div>
   );
