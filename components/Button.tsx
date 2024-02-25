@@ -12,6 +12,7 @@ const button = tv({
     variant: {
       primary: "!text-white !bg-[#FF6636]",
       outline: "!text-[#FF6636] !bg-[#FFEEE8]",
+      dark: "!text-white !bg-[#292B31]",
     },
   },
   defaultVariants: {
