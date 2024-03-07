@@ -15,13 +15,18 @@ export const Instructor: React.FC<InstructorProps> = observer(
       <div className="flex !h-2/5 flex-col md:flex-row bg-[#EEAA17] rounded-xl shadow-lg overflow-hidden">
         {/* Description Section */}
         <div className="p-8 flex flex-col justify-evenly bg-orange-100 w-full md:w-1/2">
-          <div className={`flex flex-col`}>
-            <h2 className="text-2xl font-bold mb-2">{name}</h2>
+          <div className={`flex flex-col gap-4`}>
+            <img
+              src={imageUrl}
+              alt={`${name}`}
+              className="w-[100px] h-[100px] md:hidden rounded-full object-scale-down"
+            />
+            <h2 className="text-2xl font-bold">{name}</h2>
             <h3 className="text-xl mb-4">{title}</h3>
           </div>
           <div className="flex flex-col gap-4">
             {description.map((desc, index) => (
-              <p>{desc}</p>
+              <p key={index}>{desc}</p>
             ))}
           </div>
           <div className="flex items-center">
@@ -30,7 +35,11 @@ export const Instructor: React.FC<InstructorProps> = observer(
         </div>
         {/* Image Section */}
         <div className="hidden md:flex flex-col items-end !justify-end w-full md:w-1/2">
-          <img src={imageUrl} alt={`${name}`} className="w-full h-full" />
+          <img
+            src={imageUrl}
+            alt={`${name}`}
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
     );
@@ -39,13 +48,13 @@ export const Instructor: React.FC<InstructorProps> = observer(
 
 const Instructors: React.FC = observer(() => {
   const instructorData = {
-    name: "Devon Lane",
-    title: "Senior Developer",
+    name: "Javlon Qurbonboyev",
+    title: "Mentor",
     rating: 4.6,
     studentsCount: 854,
-    imageUrl: "Instructor.svg",
+    imageUrl: "Instructor.jpg",
     description: [
-      "Devon Lane is a seasoned Senior Developer with a robust track record\n" +
+      "Lorem is a seasoned Senior Developer with a robust track record\n" +
         "        spanning over a decade in the tech industry. His expertise is broad and\n" +
         "        deep, encompassing modern frontend frameworks, backend services, and\n" +
         "        full-stack applications. Devon's journey began in the trenches of\n" +
@@ -53,7 +62,7 @@ const Instructors: React.FC = observer(() => {
         "        but daily realities.",
       "From there, he transitioned to working with\n" +
         "        multinational corporations, contributing to large-scale software\n" +
-        "        solutions that drive business and innovation. Devon's passion for coding\n" +
+        "        solutions that drive business and innovation. Javlon's passion for coding\n" +
         "        is matched only by his enthusiasm for sharing knowledge. As a mentor, he\n" +
         "        has guided hundreds of students through the complexities of coding,\n" +
         "        helping them to unravel the intricacies of software development and\n" +

@@ -45,6 +45,7 @@ module.exports = {
         grayBorder: "rgba(255, 255, 255, 0.10)",
         features_bg_grad_via: "rgba(22, 27, 34, 0.53)",
         features_bg_grad_to: "rgba(22, 27, 34, 0.46)",
+        text_color: "#FF6636",
         features_icons_color:
           "linear-gradient(180deg, #8324ff98 0%, #5D2ABF 100%)",
         pink_gradient: "linear-gradient(45deg, #3F9CFB -10%, #B856F3 139%)",

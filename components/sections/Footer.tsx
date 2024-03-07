@@ -133,6 +133,7 @@ const Footer = () => {
             <div className={`flex gap-2`}>
               {socialMedia.map(({ icon, href }, index) => (
                 <Button
+                  key={index}
                   className={`!font-normal hover:shadow-lg rounded-none !p-3`}
                   variant={`hybrid`}
                 >

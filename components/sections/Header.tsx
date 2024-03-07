@@ -7,6 +7,7 @@ import { AudioOutlined } from "@ant-design/icons";
 import { Input, Space } from "antd";
 import type { SearchProps } from "antd/es/input/Search";
 import Button from "@/components/Button";
+import { useRouter } from "next/router";
 
 const { Search } = Input;
 
@@ -26,6 +27,8 @@ type Props = {};
 
 const Header: React.FC<Props> = observer(() => {
   const [currentTab, setCurrentTab] = React.useState("home");
+
+  const router = useRouter();
 
   const headerList = [
     {
@@ -58,9 +61,9 @@ const Header: React.FC<Props> = observer(() => {
             {/*  Map through the headerList and show the results*/}
             <div className={`flex items-center gap-2 mx-2`}>
               {headerList.map(({ title, value, href }, index) => (
-                <p
+                <Link
                   key={index}
-                  // href={href}
+                  href={href}
                   onClick={() => setCurrentTab(value)}
                   className={`text-[#8C94A3] hover:text-white transition duration-100 ease-in text-sm font-inter tracking-[-1%]  px-4 py-2`}
                   style={{
@@ -71,7 +74,7 @@ const Header: React.FC<Props> = observer(() => {
                   }}
                 >
                   {title}
-                </p>
+                </Link>
               ))}
             </div>
             {/*<LanguageSelector />*/}
@@ -98,14 +101,18 @@ const Header: React.FC<Props> = observer(() => {
             <Button
               variant="outline"
               className="text-white"
-              onClick={() => console.log("clicked")}
+              onClick={() => {
+                router.push("/auth/login");
+              }}
             >
               Login
             </Button>
             <Button
               variant="primary"
               className="text-white"
-              onClick={() => console.log("clicked")}
+              onClick={() => {
+                router.push("/auth/login");
+              }}
             >
               Create Account
             </Button>
