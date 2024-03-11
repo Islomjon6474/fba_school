@@ -57,7 +57,7 @@ const Courses: React.FC = observer(() => {
     key: course.id.toString(),
     children: (
       <div
-        className={`flex flex-col items-center justify-center w-[90%] gap-3 p-6 !bg-opacity-50 rounded transition-bg duration-200 ease-in bg-white`}
+        className={`container flex flex-col items-center justify-center w-[90%] gap-3 p-6 !bg-opacity-50 rounded transition-bg duration-200 ease-in bg-white`}
         // style={{
         //   borderColor: course.color,
         //   backgroundColor: course.color,
@@ -93,9 +93,8 @@ const Courses: React.FC = observer(() => {
           <video
             src={`dummy_video2.mp4`}
             controls={true}
-            className={`max-h-full`}
+            className={`max-h-[90vh]`}
             width={"100%"}
-            height={"80%"}
           >
             Something related to the video
           </video>
