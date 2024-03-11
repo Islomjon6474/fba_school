@@ -121,7 +121,7 @@ const Footer = () => {
           <div className={`w-full lg:w-1/2 flex flex-col justify-start gap-5`}>
             <div className={`flex flex-col gap-2`}>
               <div className="text-white flex items-center gap-2 text-2xl break-keep font-bold">
-                <img src="/logo-white.svg" alt="logo" className={`w-10 h-10`} />
+                <img src="/logo.svg" alt="logo" className={`w-10 h-10`} />
                 FBA-School
               </div>
               <p className="text-[#8C94A3] mb-4">

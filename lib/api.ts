@@ -17,40 +17,32 @@ export const api = applyCaseMiddleware(
 );
 
 // TODO implement error handling logic
-// api.interceptors.response.use(
-//   (response) => {
-//     return response;
-//   },
-//   (error) => {
-//     const { response } = error;
-//
-//     if (error.message === "canceled") {
-//       return;
-//     }
-//
-//     if (!response) {
-//       toast.error(t("errors.noInternet"));
-//     }
-//
-//     // check if the error is from /account -> then ignore it
-//     // if (
-//     //     response &&
-//     //     !response.config.url.includes("/account") &&
-//     //     !response.config.url.includes("/pricing")
-//     // ) {
-//     //     const error = Object.values(response.data || {})[0] || response.data;
-//     //     if (
-//     //         response.status !== 401 &&
-//     //         response.status !== 409 &&
-//     //         response.status !== 400
-//     //     ) {
-//     //         SweetAlert.fire(t("errorOccurred"), t("errors.retryAgain"), "error");
-//     //     }
-//     // }
-//
-//     return Promise.reject(error);
-//   },
-// );
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const { response } = error;
+
+    if (error.message === "canceled") {
+      return;
+    }
+
+    if (!response) {
+      toast.error(t("errors.noInternet"));
+    }
+
+    if (response && response.status === 400) {
+      SweetAlert.fire(t("errorOccurred"), t("errors.retryAgain"), "error");
+    }
+
+    if (response && response.status !== 200) {
+      toast.error("Xatolik yuz berdi!");
+    }
+
+    return Promise.reject(error);
+  },
+);
 
 export const login = async (username: string, password: string) => {
   console.log(baseURL, "baseURL");
@@ -69,19 +61,34 @@ export const register = async (username: string, password: string) => {
   return response.data;
 };
 
-export const getAllCourses = async () => {
-  const response = await api.get("/course/get-all");
+export const getAllCourses = async (token: string) => {
+  const response = await api.get("/course/get-all", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 
-export const getCourseInfo = async (courseId: string) => {
-  const response = await api.get(`/course/get-full-info/${courseId}`);
+export const getCourseInfo = async (courseId: string, token: string) => {
+  const response = await api.get(`/course/get-full-info/${courseId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
   return response.data;
 };
 
-export const getCourseStructure = async (courseId: string) => {
+export const getCourseStructure = async (courseId: string, token: string) => {
+  console.log(`/module/get-all/for-user?courseId=${courseId}`);
   const response = await api.get(
     `/module/get-all/for-user?courseId=${courseId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
   );
   return response.data;
 };

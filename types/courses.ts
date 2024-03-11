@@ -5,6 +5,8 @@ export type Course = {
   price: number;
   skills?: string[];
   modules?: Module[];
+  image?: React.JSX.Element;
+  color?: string;
 };
 
 export type Module = {

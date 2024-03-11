@@ -77,7 +77,7 @@ const Instructors: React.FC = observer(() => {
       <p
         className={`text-4xl font-bold mb-10 mt-20 text-black text-center font-inter `}
       >
-        Top instructors
+        Top instructor
       </p>
       <Instructor {...instructorData} />
     </div>

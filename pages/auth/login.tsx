@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import { assertDefined } from "@/utils";
 import { login } from "@/lib/api";
+import { router } from "next/client";
 
 const Login = observer(() => {
   const usernameRef = React.useRef<InputRef>(null);
@@ -76,8 +77,10 @@ const Login = observer(() => {
                   usernameRef.current?.input?.value,
                   passwordRef.current?.input?.value,
                 ).then((response) => {
+                  assertDefined(response.data.token);
                   const { data } = response;
                   setToken(data.token);
+                  router.push("/");
                 });
               }}
               variant="primary"

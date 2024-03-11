@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import LanguageSelector from "@/components/LanguageSelector";
 import Link from "next/link";
@@ -29,7 +29,6 @@ const Header: React.FC<Props> = observer(() => {
   const [currentTab, setCurrentTab] = React.useState("home");
 
   const router = useRouter();
-
   const headerList = [
     {
       title: "Home",
@@ -52,6 +51,11 @@ const Header: React.FC<Props> = observer(() => {
       href: "/contact",
     },
   ];
+
+  useEffect(() => {
+    const tab = headerList.find((list) => list.href == router.pathname);
+    tab && setCurrentTab(tab.value);
+  }, [router.pathname]);
 
   return (
     <div className={`fixed top-0 left-0 z-[1000000] w-full flex flex-col`}>
@@ -84,11 +88,7 @@ const Header: React.FC<Props> = observer(() => {
       <div className={`w-full h-fit bg-white border-b border-[#D9D9D9]`}>
         <div className={`container w-full  flex justify-between`}>
           <div className={`flex items-center gap-2 py-4`}>
-            <img
-              src="/logo-black.svg"
-              alt="logo"
-              className={`w-10 h-10 bg-white`}
-            />
+            <img src="/logo.svg" alt="logo" className={`w-10 h-10 bg-white`} />
             <Search
               placeholder="What would you like to learn?"
               className={`w-1/2 rounded-none`}
