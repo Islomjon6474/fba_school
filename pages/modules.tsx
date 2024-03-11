@@ -147,7 +147,8 @@ const Modules: React.FC = observer(() => {
             size="large"
             tabBarStyle={{
               width: "fit-content",
-              maxWidth: "20%",
+              maxWidth: "30%",
+              minWidth: "15%",
               height: "100%",
             }}
             items={tabItems}
