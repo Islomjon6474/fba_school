@@ -100,19 +100,6 @@ const Topic: React.FC = observer(() => {
               <p className={`font-bold`}>Description:</p>
               <p className={` italic`}>{topic.description}</p>
             </div>
-            <div className={`flex flex-col gap-3 mt-10 text-xl items-start`}>
-              <p className={`font-bold`}>Skills:</p>
-              {courses[router.query.courseId! as string].skills?.map(
-                (skill, index) => {
-                  return (
-                    <div key={index} className={` flex gap-2`}>
-                      <img src={`ArrowRight.svg`} />
-                      <p>{skill}</p>
-                    </div>
-                  );
-                },
-              )}
-            </div>
           </div>
         </div>
       ),

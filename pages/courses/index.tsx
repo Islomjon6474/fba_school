@@ -79,12 +79,7 @@ const Courses: React.FC = observer(() => {
                   {course.modules?.length || "0"}
                 </span>
               </p>
-              <p className="text-lg flex flex-col items-start w-fit text-center">
-                <span>Skills:</span>
-                <span className={`font-bold`}>
-                  {course.skills?.length || "0"}
-                </span>
-              </p>{" "}
+
               <p className="text-lg flex flex-col items-start w-fit text-center">
                 <span>Price:</span>
                 <span className={`font-bold`}>{course.price} sum</span>
@@ -95,6 +90,28 @@ const Courses: React.FC = observer(() => {
         <div
           className={`w-full flex flex-col gap-3 mt-10 items-start justify-center`}
         >
+          <video
+            src={`dummy_video2.mp4`}
+            controls={true}
+            className={`max-h-full`}
+            width={"100%"}
+            height={"80%"}
+          >
+            Something related to the video
+          </video>
+          <div
+            className={`w-full flex flex-col gap-3 my-10 text-xl items-start`}
+          >
+            <p className={`font-bold`}>Skills:</p>
+            {course.skills?.map((skill, index) => {
+              return (
+                <div key={index} className={` flex gap-2`}>
+                  <img src={`ArrowRight.svg`} />
+                  <p>{skill}</p>
+                </div>
+              );
+            })}
+          </div>
           {course.modules?.map((module: Module, index) => (
             <div
               key={index}
@@ -156,7 +173,7 @@ const Courses: React.FC = observer(() => {
       }}
     >
       <div
-        className={`w-screen min-h-screen !h-screen text-black flex justify-center items-center my-36`}
+        className={`w-screen min-h-screen !h-fit text-black flex justify-center items-center my-36`}
       >
         {isLoading ? (
           <Spin size={`large`} style={{ color: "orange" }} />
@@ -167,7 +184,7 @@ const Courses: React.FC = observer(() => {
             size="large"
             tabBarStyle={{
               width: "fit-content",
-              maxWidth: "20%",
+              minWidth: "15%",
               height: "100%",
             }}
             items={tabItems}
