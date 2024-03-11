@@ -145,7 +145,7 @@ const Topic: React.FC = observer(() => {
             tabBarStyle={{
               width: "fit-content",
               maxWidth: "30%",
-              minWidth: "20%",
+              minWidth: "15%",
               height: "100%",
             }}
             items={tabItems}
